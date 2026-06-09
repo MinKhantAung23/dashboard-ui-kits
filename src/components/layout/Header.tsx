@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useTheme } from "../providers/ThemeProvider";
-import { Menu, Sun, Moon, Globe, Bell, Search, User, Settings, LogOut } from "lucide-react";
+import { Menu, Sun, Moon, Globe, Bell, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -84,39 +84,18 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
         {/* Profile Dropdown */}
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <Button variant="ghost" className="relative h-10 w-10 lg:w-auto lg:px-2 gap-2 rounded-full lg:rounded-full">
-              <Avatar className="h-8 w-8 border border-border">
-                <AvatarImage src="" alt="@shadcn" />
-                <AvatarFallback className="bg-primary/10 text-primary font-bold text-xs">JD</AvatarFallback>
+            <Button variant="ghost" className="relative h-9 w-9 rounded-full p-0">
+              <Avatar className="h-9 w-9">
+                <AvatarFallback className="bg-primary/10 text-primary font-medium text-sm">JD</AvatarFallback>
               </Avatar>
-              <div className="hidden lg:flex flex-col items-start ml-1 text-left">
-                <span className="text-sm font-medium leading-none">John Doe</span>
-                <span className="text-[10px] text-muted-foreground mt-1 leading-none uppercase tracking-wider">Admin</span>
-              </div>
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56" align="end" forceMount>
-            <DropdownMenuLabel className="font-normal">
-              <div className="flex flex-col space-y-1">
-                <p className="text-sm font-medium leading-none">John Doe</p>
-                <p className="text-xs leading-none text-muted-foreground">
-                  john.doe@example.com
-                </p>
-              </div>
-            </DropdownMenuLabel>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem>
-              <User className="mr-2 h-4 w-4" />
-              <span>Profile</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Settings className="mr-2 h-4 w-4" />
-              <span>Settings</span>
-            </DropdownMenuItem>
+          <DropdownMenuContent align="end" className="w-40">
+            <DropdownMenuItem>Profile</DropdownMenuItem>
+            <DropdownMenuItem>Settings</DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem className="text-rose-500 focus:text-rose-500 focus:bg-rose-500/10">
-              <LogOut className="mr-2 h-4 w-4" />
-              <span>Log out</span>
+              Log out
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
