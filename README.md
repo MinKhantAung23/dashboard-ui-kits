@@ -1,4 +1,4 @@
-# 🚀 Universal Dashboard Kits
+# 🚀 Dashboard Kits
 
 A scalable, decoupled, and production-ready collection of Dashboard Templates. 
 
