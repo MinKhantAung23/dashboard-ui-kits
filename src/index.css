@@ -1,8 +1,15 @@
 @import "tailwindcss";
 @variant dark (&:where(.dark, .dark *));
 
+@theme {
+  --font-sans: 'Outfit', system-ui, -apple-system, sans-serif;
+  --color-dark-bg: #0B0F19;
+  --color-dark-surface: #111827;
+  --color-dark-border: #1F2937;
+}
+
 @layer base {
   body {
-    @apply bg-gray-50 text-gray-900 dark:bg-gray-950 dark:text-gray-100;
+    @apply bg-slate-50 text-slate-900 dark:bg-dark-bg dark:text-slate-100 font-sans antialiased selection:bg-indigo-500/30 selection:text-indigo-900 dark:selection:text-indigo-100 transition-colors duration-300;
   }
 }
