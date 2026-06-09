@@ -1,32 +1,73 @@
-# 🚀 Universal Dashboard Kits
+# React + TypeScript + Vite
 
-A scalable, decoupled, and production-ready collection of Dashboard Templates. 
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-This repository uses a **Branch-Based Architecture**. The `main` branch serves ONLY as documentation. All actual templates and UI kits are stored in their respective, isolated branches. **Do not clone the `main` branch directly.**
+Currently, two official plugins are available:
 
----
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## 📦 Available Kits (Branches)
+## React Compiler
 
-Choose the exact framework and UI library combination you need for your project.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-### 🔺 Next.js (App Router)
-* **`base-nextjs`** : The Foundation (Next.js 14+ & Tailwind CSS).
-* **`kit-next-shadcn`** : Next.js + Tailwind + Shadcn UI.
-* **`kit-next-mui`** : Next.js + Material UI (MUI) + Emotion.
-* **`kit-next-tremor`** : Next.js + Tailwind + Tremor (Perfect for Analytics & Charts).
+## Expanding the ESLint configuration
 
-### ⚛️ React (Vite)
-* **`base-react`** : The Foundation (React 18+ & Vite & Tailwind CSS).
-* **`kit-react-shadcn`** : React + Vite + Tailwind + Shadcn UI.
-* **`kit-react-mui`** : React + Vite + Material UI (MUI).
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
----
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
-## 🛠️ How to Use (Quick Start)
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
-To start a new project, you must clone **only the specific branch** you need using the `--single-branch` flag. This prevents downloading unnecessary history and keeps your project clean.
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
-**Command Syntax:**
-```bash
-git clone -b <branch-name> --single-branch [https://github.com/MinKhantAung23/dashboard-ui-kits.git](https://github.com/MinKhantAung23/dashboard-ui-kits.git) my-new-project
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
