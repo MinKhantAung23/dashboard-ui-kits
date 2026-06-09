@@ -121,22 +121,24 @@ export function Sidebar({
           ${isCollapsed ? 'lg:w-20' : 'lg:w-64'}
         `}
       >
-        <div className={`h-16 shrink-0 flex items-center border-b border-gray-200 dark:border-gray-800 ${isCollapsed ? 'justify-center px-0' : 'justify-between px-6'}`}>
-          {!isCollapsed && (
+        <div className="h-16 shrink-0 flex items-center justify-center border-b border-gray-200 dark:border-gray-800">
+          {!isCollapsed ? (
             <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 whitespace-nowrap overflow-hidden">
               DashKit
             </span>
-          )}
-          {isCollapsed && (
+          ) : (
             <span className="text-2xl font-bold text-blue-600 dark:text-blue-400">D</span>
           )}
-          
-          {/* Toggle Button for Desktop */}
+        </div>
+        
+        {/* Toggle Button for Desktop - Under Logo */}
+        <div className="hidden lg:flex items-center justify-center p-2 border-b border-gray-200 dark:border-gray-800">
           <button 
             onClick={onToggleCollapse}
-            className="hidden lg:flex items-center justify-center p-1.5 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            className={`flex items-center p-1.5 rounded-md text-gray-500 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors w-full ${!isCollapsed ? 'justify-between px-3' : 'justify-center'}`}
             title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
           >
+            {!isCollapsed && <span className="text-xs font-medium uppercase tracking-wider text-gray-400">Collapse View</span>}
             <svg className={`w-5 h-5 transition-transform ${isCollapsed ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 19l-7-7 7-7m8 14l-7-7 7-7" />
             </svg>
