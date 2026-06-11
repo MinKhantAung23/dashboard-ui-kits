@@ -1,4 +1,4 @@
-# Universal Dashboard Boilerplate - React + Shadcn UI Kit
+# Dashboard Boilerplate - React + Shadcn UI Kit
 
 This branch (`kit/react-shadcn`) provides a premium, "Simple, Clean & Modern" dashboard starter kit. It builds upon the foundational `base/react-tailwind` skeleton by deeply integrating the highly popular **Shadcn UI** component ecosystem.
 
