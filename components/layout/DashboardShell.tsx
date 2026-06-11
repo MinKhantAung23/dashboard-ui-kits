@@ -12,7 +12,7 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-muted/20">
+    <div className="min-h-screen bg-zinc-50 dark:bg-background">
       {/* Desktop Sidebar */}
       <div className="hidden lg:block fixed inset-y-0 left-0 z-40">
         <AppSidebar 

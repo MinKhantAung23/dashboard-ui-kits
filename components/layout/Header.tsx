@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuSeparator,
@@ -19,7 +20,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
   const [lang, setLang] = useState('EN');
 
   return (
-    <header className="sticky top-0 z-30 h-14 bg-background border-b border-border flex items-center justify-between px-4 lg:px-6 transition-colors duration-300">
+    <header className="sticky top-0 z-50 h-14 bg-background border-b border-border flex items-center justify-between px-4 lg:px-6 transition-colors duration-300">
       <div className="flex items-center gap-4 flex-1">
         <Button 
           variant="ghost" 
@@ -60,8 +61,10 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
             <span>{lang}</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="text-xs">
-            <DropdownMenuItem onClick={() => setLang('EN')}>English (EN)</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setLang('MM')}>Myanmar (MM)</DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuItem onClick={() => setLang('EN')}>English (EN)</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setLang('MM')}>Myanmar (MM)</DropdownMenuItem>
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
 
@@ -73,9 +76,11 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
             <span className="sr-only">Toggle theme</span>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="text-xs">
-            <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
-            <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuItem onClick={() => setTheme("light")}>Light</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("dark")}>Dark</DropdownMenuItem>
+              <DropdownMenuItem onClick={() => setTheme("system")}>System</DropdownMenuItem>
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
         
@@ -90,7 +95,7 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
               <span className="text-xs font-medium leading-none">John Doe</span>
             </div>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="w-56" align="end">
+          <DropdownMenuContent className="w-56 z-[100]" align="end">
             <DropdownMenuLabel className="font-normal">
               <div className="flex flex-col space-y-1">
                 <p className="text-sm font-medium leading-none">John Doe</p>
@@ -100,19 +105,23 @@ export function Header({ onMenuClick }: { onMenuClick: () => void }) {
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-xs">
-              <User className="mr-2 h-3.5 w-3.5" />
-              <span>Profile</span>
-            </DropdownMenuItem>
-            <DropdownMenuItem className="text-xs">
-              <Settings className="mr-2 h-3.5 w-3.5" />
-              <span>Settings</span>
-            </DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuItem className="text-xs">
+                <User className="mr-2 h-3.5 w-3.5" />
+                <span>Profile</span>
+              </DropdownMenuItem>
+              <DropdownMenuItem className="text-xs">
+                <Settings className="mr-2 h-3.5 w-3.5" />
+                <span>Settings</span>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem className="text-rose-500 focus:text-rose-500 focus:bg-rose-500/10 text-xs">
-              <LogOut className="mr-2 h-3.5 w-3.5" />
-              <span>Log out</span>
-            </DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuItem className="text-rose-500 focus:text-rose-500 focus:bg-rose-500/10 text-xs">
+                <LogOut className="mr-2 h-3.5 w-3.5" />
+                <span>Log out</span>
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
