@@ -26,7 +26,7 @@ export function DashboardLayout({ children }: { children: React.ReactNode }) {
         </SheetContent>
       </Sheet>
       
-      <div className={cn("flex flex-col min-h-screen transition-[padding] duration-300 ease-in-out", isSidebarCollapsed ? 'lg:pl-20' : 'lg:pl-72')}>
+      <div className={cn("flex flex-col min-h-screen transition-[padding] duration-300 ease-in-out", isSidebarCollapsed ? 'lg:pl-20' : 'lg:pl-64')}>
         <Header onMenuClick={() => setIsMobileOpen(true)} />
         
         <main className="flex-1 p-4 lg:p-8 overflow-x-hidden">
