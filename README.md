@@ -1,58 +1,63 @@
-# 🚀 DashKit: React + Tailwind Foundation
+# Universal Dashboard Boilerplate - React + Shadcn UI Kit
 
-Welcome to the `base/react-tailwind` branch! This is the foundational boilerplate for building premium, modern dashboard layouts. It focuses on a clean architectural setup without being tied to any specific heavy UI component library (like Shadcn or MUI) just yet.
+This branch (`kit/react-shadcn`) provides a premium, "Simple, Clean & Modern" dashboard starter kit. It builds upon the foundational `base/react-tailwind` skeleton by deeply integrating the highly popular **Shadcn UI** component ecosystem.
 
 ## ✨ Features
 
-- **Premium Aesthetics**: Crafted with a sleek midnight dark mode palette, glassmorphism (`backdrop-blur`), and modern typography (Outfit font).
-- **Responsive Layout**: Fully responsive sidebar (mobile overlay, desktop pinned) and header combination.
-- **Collapsible Sidebar**: A mini-sidebar mode that intelligently collapses text and shows only icons for power users.
-- **Theme Toggle**: Built-in Dark/Light mode context switching using the latest Tailwind CSS v4 class strategy.
-- **Professional Icons**: Pre-configured with `lucide-react` for crisp, consistent scalable vector icons.
-- **Micro-Animations**: Smooth hover effects, scaling, and structural transitions to make the interface feel alive.
+- **Shadcn UI Integration**: Fully configured and utilizing standard Shadcn components (`Card`, `DropdownMenu`, `Sheet`, `Button`, `Avatar`, etc.) for robust accessibility and standard design patterns.
+- **Simple & Clean Aesthetic**: A flat, modern design replacing heavy glassmorphism with crisp semantic colors (`bg-background`, `bg-muted`) and standard SaaS font sizes (`text-sm`, `text-xs`).
+- **Responsive Navigation**:
+  - **Desktop**: A sleek, collapsible sidebar with standard icon hover animations and active states.
+  - **Mobile**: A smooth, native-feeling slide-out drawer powered by Shadcn's `<Sheet>` component.
+- **Advanced Header**: Features a functional Search layout, notifications, language switcher, and a professional User Profile Dropdown.
+- **Theming**: Native Light, Dark, and System theme support utilizing Shadcn's semantic CSS variables.
 
-## 🛠️ Tech Stack
+## 🚀 Getting Started
 
-- **Framework**: [React](https://react.dev/)
-- **Bundler**: [Vite](https://vitejs.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Icons**: [Lucide React](https://lucide.dev/)
+1. **Install Dependencies**
+   Make sure you have Node.js installed, then run:
+   ```bash
+   npm install
+   ```
 
-## 📦 How to Use (For New Projects)
+2. **Run Development Server**
+   ```bash
+   npm run dev
+   ```
+   Open [http://localhost:5173](http://localhost:5173) to view it in the browser.
 
-To use this foundation as a starter template for a **new project**, you can clone this specific branch:
+3. **Build for Production**
+   ```bash
+   npm run build
+   ```
 
-```bash
-# Clone only this branch into a new folder named 'my-new-project'
-git clone -b base/react-tailwind --single-branch https://github.com/yourusername/dashboard-kits.git my-new-project
+## 📁 Project Structure
 
-# Navigate into the project
-cd my-new-project
-
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
-```
-
-## 🏗️ Folder Structure
+Key directories specific to this kit:
 
 ```text
 src/
 ├── components/
-│   ├── layout/       # Core layout pieces: DashboardLayout, Header, Sidebar
-│   └── providers/    # Context providers (e.g., ThemeProvider)
-├── index.css         # Global styles and Tailwind v4 theme configuration
-├── App.tsx           # Entry point and layout demonstration template
-└── main.tsx          # React bootstrapper
+│   ├── layout/       # Core layout components (AppSidebar, Header, DashboardLayout)
+│   ├── providers/    # Context providers (ThemeProvider)
+│   └── ui/           # Automatically generated Shadcn UI components
+├── lib/              # Utility functions (e.g., Shadcn's `cn` utility)
+├── App.tsx           # Dashboard overview page demonstrating widgets & cards
+└── index.css         # Global styles and Shadcn theme CSS variables
 ```
 
-## 📝 Customization
+## 🛠️ Adding More Components
 
-- **Navigation**: Open `src/components/layout/Sidebar.tsx` and modify the `NAV_GROUPS` array to instantly update your sidebar structure and categories.
-- **Theme & Colors**: Open `src/index.css` to tweak the core CSS variables and default Tailwind behaviors.
+This kit is fully compatible with the official Shadcn CLI. To add a new component, simply run:
 
----
-*Built with ❤️ for rapid, premium dashboard development.*
+```bash
+npx shadcn@latest add [component-name]
+```
+For example: `npx shadcn@latest add dialog`
+
+## 🌿 Branch Architecture
+
+This repository uses a Branch-Based Architecture:
+- `base/react-tailwind`: The pure HTML/Tailwind skeleton.
+- **`kit/react-shadcn`** (Current): The standard Shadcn UI implementation.
+- *(Future Branches)*: `kit/react-mui`, `kit/next-shadcn`, etc.
